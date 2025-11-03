@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu6vpn605kxfu"]
+
+[ext_resource type="Script" path="res://Stuff/muyu.cs" id="1_v2y4s"]
+[ext_resource type="Texture2D" uid="uid://b7j84hy24qnue" path="res://Asset/Stuff/muyu.png" id="1_xir3g"]
+[ext_resource type="AudioStream" uid="uid://dk4pd0o0atout" path="res://Asset/Sound/MuyuSound.mp3" id="3_kevkk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ba04a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xir3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Muyu" type="Node2D"]
+position = Vector2(466, 442)
+script = ExtResource("1_v2y4s")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ba04a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-27, -41, -47, 0, -28, 33, 33, 31, 51, -8, 29, -47)
+
+[node name="MuyuSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kevkk")
+pitch_scale = 0.8
+
+[connection signal="input_event" from="Area2D" to="." method="OnArea2DInputEvent"]

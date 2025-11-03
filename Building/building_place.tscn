@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://k04qywwexrrq"]
+
+[ext_resource type="Script" path="res://Building/building_place.cs" id="1_gpcxm"]
+[ext_resource type="PackedScene" uid="uid://gkh3xbp0wnal" path="res://Building/temple_0.tscn" id="3_h6kkw"]
+[ext_resource type="PackedScene" uid="uid://dd7ypcby361fx" path="res://Building/temple_1.tscn" id="5_2bjx7"]
+
+[node name="BuildingPlace" type="Node2D"]
+position = Vector2(89, 62)
+script = ExtResource("1_gpcxm")
+
+[node name="Building" type="Node2D" parent="."]
+
+[node name="Temple1" parent="Building" instance=ExtResource("5_2bjx7")]
+visible = false
+position = Vector2(4.75, -7.75)
+
+[node name="Temple0" parent="Building" instance=ExtResource("3_h6kkw")]

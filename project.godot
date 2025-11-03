@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Cyber Monk"
+run/main_scene="res://Scene/main.tscn"
+config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+boot_splash/fullsize=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+CustomSignals="*res://Shared/CustomSignals/CustomSignals.cs"
+
+[display]
+
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="Cyber Monk"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

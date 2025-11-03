@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://gkh3xbp0wnal"]
+
+[ext_resource type="Script" path="res://Building/temple_0.cs" id="1_80uk2"]
+[ext_resource type="Texture2D" uid="uid://b1l5fxyeqjpik" path="res://Asset/Building/PlaceHolder.png" id="2_bvo2p"]
+[ext_resource type="Texture2D" uid="uid://bolug6k1akwpv" path="res://Asset/UI/BuildingFunction/work.png" id="3_6thwh"]
+[ext_resource type="Texture2D" uid="uid://h2k4qccx661" path="res://Asset/Building/temple2.png" id="4_ml7d7"]
+[ext_resource type="Texture2D" uid="uid://exrd4a7dfw47" path="res://Asset/UI/BuildingFunction/downgrade.png" id="4_qu03p"]
+[ext_resource type="Texture2D" uid="uid://6rlf4o1mrpu2" path="res://Asset/Building/temple1.png" id="5_jwi2x"]
+[ext_resource type="Texture2D" uid="uid://cviy3hj02baot" path="res://Asset/UI/BuildingFunction/upgrade.png" id="5_yu1b8"]
+[ext_resource type="Texture2D" uid="uid://d25bdcorc5wi2" path="res://Asset/UI/BuildingFunction/unselect.png" id="6_iobv2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1dcd"]
+atlas = ExtResource("2_bvo2p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltjml"]
+atlas = ExtResource("2_bvo2p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8hnp"]
+atlas = ExtResource("2_bvo2p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4dgy"]
+atlas = ExtResource("2_bvo2p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8x4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1dcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltjml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8hnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4dgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya2tp"]
+size = Vector2(29, 33)
+
+[node name="Temple0" type="Node2D"]
+position = Vector2(0, -2)
+script = ExtResource("1_80uk2")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v8x4p")
+
+[node name="Buttons" type="Node2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="WorkButton" type="TextureButton" parent="Buttons"]
+visible = false
+offset_left = -304.0
+offset_top = 132.0
+offset_right = -176.0
+offset_bottom = 260.0
+texture_normal = ExtResource("3_6thwh")
+
+[node name="DowngradeButton" type="TextureButton" parent="Buttons"]
+visible = false
+offset_left = 12.0
+offset_top = 136.0
+offset_right = 140.0
+offset_bottom = 264.0
+texture_normal = ExtResource("4_qu03p")
+
+[node name="UpgradeButton" type="TextureButton" parent="Buttons"]
+visible = false
+offset_left = -156.0
+offset_top = 132.0
+offset_right = -28.0
+offset_bottom = 260.0
+texture_normal = ExtResource("5_yu1b8")
+
+[node name="UnselectButton" type="TextureButton" parent="Buttons"]
+visible = false
+offset_left = 172.0
+offset_top = 136.0
+offset_right = 300.0
+offset_bottom = 264.0
+texture_normal = ExtResource("6_iobv2")
+
+[node name="Temple1Button" type="TextureButton" parent="Buttons"]
+offset_left = 12.0
+offset_top = 88.0
+offset_right = 268.0
+offset_bottom = 216.0
+texture_normal = ExtResource("5_jwi2x")
+
+[node name="Temple2Button" type="TextureButton" parent="Buttons"]
+offset_left = -152.0
+offset_top = 84.0
+offset_right = -24.0
+offset_bottom = 212.0
+texture_normal = ExtResource("4_ml7d7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_ya2tp")

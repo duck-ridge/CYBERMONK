@@ -1,0 +1,167 @@
+[gd_scene load_steps=24 format=3 uid="uid://de6b8qukjd8l"]
+
+[ext_resource type="Texture2D" uid="uid://dr1q3ijmkp87k" path="res://Asset/Monk/MonkLittle/lilMonk.png" id="1_3bcdv"]
+[ext_resource type="Script" path="res://Char/monk_little.cs" id="1_78kxk"]
+[ext_resource type="Texture2D" uid="uid://covx41560vdxr" path="res://Asset/Monk/MonkLittle/lilMonkWalk.png" id="3_5aens"]
+[ext_resource type="Script" path="res://Char/StateMachine.gd" id="4_36eh2"]
+[ext_resource type="Script" path="res://Char/MonkIdle.gd" id="5_4xx01"]
+[ext_resource type="Script" path="res://Char/MonkPatrol.gd" id="6_f7mhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox0nm"]
+atlas = ExtResource("1_3bcdv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ryev"]
+atlas = ExtResource("1_3bcdv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eylwa"]
+atlas = ExtResource("1_3bcdv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gln37"]
+atlas = ExtResource("1_3bcdv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k1qh"]
+atlas = ExtResource("1_3bcdv")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuyw8"]
+atlas = ExtResource("1_3bcdv")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6un3q"]
+atlas = ExtResource("3_5aens")
+region = Rect2(0, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dtqb"]
+atlas = ExtResource("3_5aens")
+region = Rect2(67, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujn78"]
+atlas = ExtResource("3_5aens")
+region = Rect2(134, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o184o"]
+atlas = ExtResource("3_5aens")
+region = Rect2(201, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chtu1"]
+atlas = ExtResource("3_5aens")
+region = Rect2(268, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1blvr"]
+atlas = ExtResource("3_5aens")
+region = Rect2(335, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsijx"]
+atlas = ExtResource("3_5aens")
+region = Rect2(402, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17m85"]
+atlas = ExtResource("3_5aens")
+region = Rect2(469, 0, 67, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8chg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox0nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ryev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eylwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gln37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k1qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuyw8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6un3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dtqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujn78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o184o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chtu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1blvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsijx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17m85")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fmxsq"]
+radius = 21.0
+height = 74.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y5x"]
+size = Vector2(37, 38)
+
+[node name="MonkLittle" type="CharacterBody2D"]
+script = ExtResource("1_78kxk")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_k8chg")
+frame = 5
+frame_progress = 1.0
+
+[node name="UnlockButton" type="Button" parent="."]
+offset_left = -45.0
+offset_top = -79.0
+offset_right = 45.0
+offset_bottom = -48.0
+pivot_offset = Vector2(41, 17)
+text = "Unlock"
+
+[node name="GongdeTimer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="DragArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea2D"]
+shape = SubResource("CapsuleShape2D_fmxsq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_d5y5x")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_36eh2")
+initial_state = NodePath("MonkIdle")
+
+[node name="MonkIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("Monk")]
+script = ExtResource("5_4xx01")
+Monk = NodePath("../..")
+
+[node name="MonkPatrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("Monk")]
+script = ExtResource("6_f7mhw")
+Monk = NodePath("../..")
