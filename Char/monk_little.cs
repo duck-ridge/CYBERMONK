@@ -60,6 +60,7 @@ public partial class monk_little : CharacterBody2D
 		TurnOnPrayAction();
 		unlockButton.Disabled = true;
 
+		unlockButton.Hide();
 
 		stateMachine.Call("ready_start");
 

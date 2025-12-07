@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel;
+using System.Resources;
 
 public partial class temple_1 : Node2D
 {
@@ -17,6 +18,7 @@ public partial class temple_1 : Node2D
 
 	public Node2D buildingPlace;
 
+	public PackedScene littleMonk;
 
 
 
@@ -31,6 +33,12 @@ public partial class temple_1 : Node2D
 	//单独制作一个initial方便重新调用ready
 	public override void _Ready()
 	{
+		//小和尚的实例化
+		// PackedScene littleMonk = ResourceLoader.Load<PackedScene>("res://Char/monk_little.tscn");
+		// CharacterBody2D monkInstance = (CharacterBody2D)littleMonk.Instantiate();
+		// monkInstance.Position = new Vector2(300, -100);
+		// AddChild(monkInstance);
+		
 		buttons = GetNode<Node2D>("Buttons");
 		downgradeButton = GetNode<TextureButton>("Buttons/VBoxContainer/DowngradeButton");
 		upgradeButton = GetNode<TextureButton>("Buttons/VBoxContainer/UpgradeButton");
@@ -47,6 +55,8 @@ public partial class temple_1 : Node2D
 		upgradeButton.Pressed += ClickUpgrade;
 		downgradeButton.Pressed += ClickDowngrade;
 		Initialize();
+
+
     }
 
 
@@ -100,6 +110,12 @@ public partial class temple_1 : Node2D
 
 	public void ClickWork()
 	{
+		//创建小和尚
+		PackedScene littleMonk = ResourceLoader.Load<PackedScene>("res://Char/monk_little.tscn");
+		CharacterBody2D monkInstance = (CharacterBody2D)littleMonk.Instantiate();
+		monkInstance.Position = new Vector2(300, -400);
+		AddChild(monkInstance);
+
 		FoldButtonList();
 	}
 
