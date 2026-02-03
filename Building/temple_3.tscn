@@ -67,7 +67,7 @@ script = ExtResource("1_45drb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mnmwj")
-animation = &"High"
+animation = &"Low"
 
 [node name="Buttons" type="Node2D" parent="."]
 position = Vector2(0, 15)

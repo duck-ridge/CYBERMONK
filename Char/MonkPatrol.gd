@@ -4,8 +4,6 @@ class_name MonkPatrol
 @export var Monk: CharacterBody2D
 @export var move_speed:= 20
 
-
-
 var move_to_right: bool
 var wander_time: float
 var animationSprite

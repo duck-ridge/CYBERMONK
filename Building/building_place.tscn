@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://k04qywwexrrq"]
+[gd_scene load_steps=8 format=3 uid="uid://k04qywwexrrq"]
 
 [ext_resource type="Script" path="res://Building/building_place.cs" id="1_gpcxm"]
 [ext_resource type="PackedScene" uid="uid://gkh3xbp0wnal" path="res://Building/temple_0.tscn" id="3_h6kkw"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dd7ypcby361fx" path="res://Building/temple_1.tscn" id="5_2bjx7"]
 [ext_resource type="PackedScene" uid="uid://hepi5eejw4sh" path="res://Building/temple_3.tscn" id="5_lqfyx"]
 [ext_resource type="Script" path="res://Building/temple_3.cs" id="6_fc6ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jeda3"]
+size = Vector2(64, 35)
 
 [node name="BuildingPlace" type="Node2D"]
 position = Vector2(1, -1)
@@ -27,3 +30,9 @@ position = Vector2(-1, -63)
 visible = false
 position = Vector2(-1, -65)
 script = ExtResource("6_fc6ui")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_jeda3")
