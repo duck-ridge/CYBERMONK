@@ -31,10 +31,8 @@ func enter():
 
 func physics_update(delta: float):
 	if wander_time > 0:
-		
 		wander_time -= delta
-		if move_to_right == true:
-			
+		if move_to_right == true:	
 			get_node("../..").position.x += 1
 		else:
 			get_node("../..").position.x -= 1

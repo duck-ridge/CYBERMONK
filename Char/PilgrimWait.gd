@@ -26,8 +26,6 @@ func physics_update(delta: float):
 func exist():
 	pass
 
-
-
 func choose_target():
 	pass
 		

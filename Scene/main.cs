@@ -186,12 +186,9 @@ public partial class main : Node2D
 		var building_distance_pool = new List<float>();
 		foreach (Node2D child in building_pool)
 		{
-			GD.Print("building position as follow: ");
-			GD.Print(child.GlobalPosition);
 
 			float distance = monk_pos.DistanceTo(child.GlobalPosition);
 			building_distance_pool.Add(distance);
-			GD.Print(distance);
 		}
 
 		// 计算monk到建筑的距离中最小的值
@@ -211,11 +208,15 @@ public partial class main : Node2D
 		
 		if (minValue < 50)
 		{
-			registered_monk.Hide();
-			building_pool[minIndex].Scale *= 1.2f;
+			GD.Print(building_pool[minIndex].HasMethod("GetAMonk"));
+			if (building_pool[minIndex].HasMethod("GetAMonk"))
+			{
+				GD.Print("XXXXXXXXXXX");
+				registered_monk.Hide();
+				building_pool[minIndex].Scale *= 1.05f;
+				building_pool[minIndex].Call("GetAMonk");
+			}
+			building_pool[minIndex].Scale *= 1.05f;
 		}
-
-
 	}
-
 }

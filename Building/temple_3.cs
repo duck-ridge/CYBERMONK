@@ -2,8 +2,9 @@ using Godot;
 using System;
 using System.ComponentModel;
 using System.Resources;
+using System.Text.RegularExpressions;
 
-public partial class temple_1 : Node2D
+public partial class temple_3 : Node2D
 {
 
 	public TextureButton downgradeButton;
@@ -20,25 +21,21 @@ public partial class temple_1 : Node2D
 
 	public PackedScene littleMonk;
 
+	public int monk_num_within;
 
+	public AnimatedSprite2D Sprite;
 
 	//Signal Area
 	[Signal]
 	public delegate void ChangeBuildingEventHandler(int building_code);
 
 
-
-
-
 	//单独制作一个initial方便重新调用ready
 	public override void _Ready()
 	{
-		//小和尚的实例化
-		// PackedScene littleMonk = ResourceLoader.Load<PackedScene>("res://Char/monk_little.tscn");
-		// CharacterBody2D monkInstance = (CharacterBody2D)littleMonk.Instantiate();
-		// monkInstance.Position = new Vector2(300, -100);
-		// AddChild(monkInstance);
-		
+		monk_num_within = 0;
+		Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
 		buttons = GetNode<Node2D>("Buttons");
 		downgradeButton = GetNode<TextureButton>("Buttons/HBoxContainer/DowngradeButton");
 		upgradeButton = GetNode<TextureButton>("Buttons/HBoxContainer/UpgradeButton");
@@ -91,18 +88,6 @@ public partial class temple_1 : Node2D
 
 
 
-	// public override void _Input(InputEvent @event)
-	// {
-	//     if (@event is InputEventMouseButton mouseEvent)
-	// 	{
-	// 		if (!mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
-	//         {
-	// 			GD.Print("XX");
-	//         }
-	//     }
-	// }
-
-
 	public void ClickUnselect()
 	{
 		FoldButtonList();
@@ -144,4 +129,29 @@ public partial class temple_1 : Node2D
 		Tween tween = GetTree().CreateTween();
 		tween.TweenProperty(buttons, "scale", Vector2.Zero, 0.2);
     }
+
+
+	public void GetAMonk()
+	{
+		if (monk_num_within >= 3)
+		{
+			return;
+		}
+		monk_num_within += 1;
+
+		if (monk_num_within == 0)
+		{
+			Sprite.Play("Low");
+		}
+		else if (monk_num_within == 1)
+		{
+			Sprite.Play("Median");
+		}
+		else
+		{
+			Sprite.Play("High");
+		}
+		return;
+		
+	}
 }

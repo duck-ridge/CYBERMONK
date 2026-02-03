@@ -22,8 +22,7 @@ func _ready():
 	path_stone = get_node("../../../PathStone")
 	for i in path_stone.get_children():
 		path_stone_pool.append(i)
-		
-	print(path_stone_pool)
+
 		
 	
 func enter():
@@ -33,7 +32,7 @@ func enter():
 func physics_update(delta: float):
 	if path_stone_num < path_stone_pool.size():
 		Pilgrim.global_position += (path_stone_pool[path_stone_num].global_position - Pilgrim.global_position).normalized() 
-		print(path_stone_pool[path_stone_num].position)
+		
 
 		if Pilgrim.global_position.distance_to((path_stone_pool[path_stone_num].global_position)) < 2:
 			path_stone_num += 1
