@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hepi5eejw4sh"]
+[gd_scene load_steps=17 format=3 uid="uid://hepi5eejw4sh"]
 
 [ext_resource type="Script" path="res://Building/temple_1.cs" id="1_45drb"]
 [ext_resource type="Texture2D" uid="uid://ctufapuu6ajj3" path="res://Asset/Building/temple3.png" id="2_il4ny"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://exrd4a7dfw47" path="res://Asset/UI/BuildingFunction/downgrade.png" id="4_hl4oa"]
 [ext_resource type="Texture2D" uid="uid://cviy3hj02baot" path="res://Asset/UI/BuildingFunction/upgrade.png" id="5_cup3r"]
 [ext_resource type="Texture2D" uid="uid://d25bdcorc5wi2" path="res://Asset/UI/BuildingFunction/unselect.png" id="6_igx7s"]
+[ext_resource type="Texture2D" uid="uid://dqup43vsw22qe" path="res://Asset/UI/Fortunetelling/Ji1.png" id="7_r1ere"]
+[ext_resource type="Texture2D" uid="uid://diis4f82apbb" path="res://Asset/UI/Fortunetelling/Ji2.png" id="8_xvemv"]
+[ext_resource type="Texture2D" uid="uid://b3qj3k2td62fj" path="res://Asset/UI/Fortunetelling/Ji3.png" id="9_oxxju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iat2a"]
 atlas = ExtResource("2_il4ny")
@@ -61,6 +64,33 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya2tp"]
 size = Vector2(256, 108)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmrx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_r1ere")
+}],
+"loop": true,
+"name": &"Ji1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xvemv")
+}],
+"loop": true,
+"name": &"Ji2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oxxju")
+}],
+"loop": true,
+"name": &"Ji3",
+"speed": 5.0
+}]
+
 [node name="Temple3" type="Node2D"]
 position = Vector2(-2, -3)
 script = ExtResource("1_45drb")
@@ -102,3 +132,8 @@ texture_normal = ExtResource("6_igx7s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 11)
 shape = SubResource("RectangleShape2D_ya2tp")
+
+[node name="FortuneNum" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -71)
+sprite_frames = SubResource("SpriteFrames_tmrx8")
+animation = &"Ji1"

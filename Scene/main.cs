@@ -18,6 +18,8 @@ public partial class main : Node2D
 
     [Export(PropertyHint.File, "*.csv")]
     public string appointed_csv_path = "";
+    public int MonkNumMax = 1;
+    public int MonkNumCount = 1;
 
     public override void _Ready()
     {
@@ -61,6 +63,7 @@ public partial class main : Node2D
 
         foreach (Node child in MonkSystem.GetChildren())
         {
+            GD.Print(child);
             if (child is monk_little monk && IsInstanceValid(monk))
             {
                 if (!monk.unlockState && gongdeBalance >= 10)
@@ -119,7 +122,7 @@ public partial class main : Node2D
                 targetBuilding.Call("monk_dragged_in", registered_monk);
                 // 这里不需要在这里 Hide，由建筑脚本处理
             }
-            targetBuilding.Scale *= 1.05f;
+            // targetBuilding.Scale *= 1.05f;
         }
 
         registered_monk = null;

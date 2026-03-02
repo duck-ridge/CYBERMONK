@@ -165,6 +165,5 @@ initial_state = NodePath("MonkIdle")
 script = ExtResource("5_4xx01")
 Monk = NodePath("../..")
 
-[node name="MonkPatrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("Monk")]
+[node name="MonkPatrol" type="Node" parent="StateMachine"]
 script = ExtResource("6_f7mhw")
-Monk = NodePath("../..")

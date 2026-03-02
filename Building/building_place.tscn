@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Building/temple_3.cs" id="6_fc6ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeda3"]
-size = Vector2(64, 35)
+size = Vector2(44, 40.5)
 
 [node name="BuildingPlace" type="Node2D"]
 position = Vector2(1, -1)
@@ -17,6 +17,7 @@ script = ExtResource("1_gpcxm")
 [node name="Building" type="Node2D" parent="."]
 
 [node name="Temple0" parent="Building" instance=ExtResource("3_h6kkw")]
+position = Vector2(0, -16)
 
 [node name="Temple1" parent="Building" instance=ExtResource("5_2bjx7")]
 visible = false
@@ -34,5 +35,5 @@ script = ExtResource("6_fc6ui")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -2.5)
+position = Vector2(-1, -19.75)
 shape = SubResource("RectangleShape2D_jeda3")

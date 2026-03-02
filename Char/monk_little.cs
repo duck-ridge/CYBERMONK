@@ -118,6 +118,8 @@ public partial class monk_little : CharacterBody2D
         {
             if (mouseEvent.Pressed)
             {
+                //防止穿透
+                GetViewport().SetInputAsHandled();
                 // 1. 立即计算偏移并标记状态，防止逻辑延迟
                 isDragging = true;
                 draggingoffset = GetGlobalMousePosition() - GlobalPosition;

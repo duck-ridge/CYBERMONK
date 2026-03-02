@@ -50,6 +50,16 @@ public partial class building_place : Node2D
                 {
                     _temples[i].Call("Initialize");
                 }
+                
+                if (i == 1)
+                {
+                    main world_system = GetTree().CurrentScene as main;
+                    if (world_system != null)
+			        {
+			    	    world_system.MonkNumMax += 5;
+			        }
+                }
+                		
             }
             else
             {
@@ -67,15 +77,15 @@ public partial class building_place : Node2D
     {
         if (!IsInstanceValid(monk)) return;
 
-        // 目前逻辑：只有 Temple3 (三级寺庙) 可以收纳和尚
-        if (active_building_num == 3)
+        // 目前逻辑：只有 Temple1 (僧舍) 可以收纳和尚
+        if (active_building_num == 1)
         {
-            var temple3 = _temples[3] as temple_3;
-            if (temple3 != null)
+            var temple1 = _temples[1] as temple_1;
+            if (temple1 != null)
             {
-                // 将和尚存入 temple_3 的逻辑
-                temple3.GetAMonk(monk);
-                GD.Print("小和尚已存入 Temple3");
+                // 将和尚存入 temple_1 的逻辑
+                temple1.GetAMonk(monk);
+                GD.Print("小和尚已存入 Temple1");
             }
         }
         else

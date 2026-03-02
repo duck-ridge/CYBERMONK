@@ -110,11 +110,30 @@ public partial class temple_2 : Node2D
 
 	public void ClickWork()
 	{
+		main world_system = GetTree().CurrentScene as main;
+        if (world_system != null)
+		{
+			if (world_system.MonkNumCount > world_system.MonkNumMax)
+			{
+				return;
+			}
+		}
+	
+
 		//创建小和尚
 		PackedScene littleMonk = ResourceLoader.Load<PackedScene>("res://Char/monk_little.tscn");
 		CharacterBody2D monkInstance = (CharacterBody2D)littleMonk.Instantiate();
-		monkInstance.Position = new Vector2(300, -400);
-		AddChild(monkInstance);
+		
+		Random rng = new Random();
+		int randnum = rng.Next(100, 801);
+
+		monkInstance.Position = new Vector2(randnum, -200);
+
+		GetNode("../../../../MonkSystem").AddChild(monkInstance);
+		
+		world_system.MonkNumCount += 1;
+		GD.Print(world_system.MonkNumCount);
+		GD.Print(world_system.MonkNumMax);
 
 		FoldButtonList();
 	}

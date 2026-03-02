@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd7ypcby361fx"]
+[gd_scene load_steps=10 format=3 uid="uid://dd7ypcby361fx"]
 
 [ext_resource type="Script" path="res://Building/temple_1.cs" id="1_sjm5v"]
 [ext_resource type="Texture2D" uid="uid://h2k4qccx661" path="res://Asset/Building/temple1.png" id="2_a54gf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://exrd4a7dfw47" path="res://Asset/UI/BuildingFunction/downgrade.png" id="4_l18f4"]
 [ext_resource type="Texture2D" uid="uid://cviy3hj02baot" path="res://Asset/UI/BuildingFunction/upgrade.png" id="5_bgilw"]
 [ext_resource type="Texture2D" uid="uid://d25bdcorc5wi2" path="res://Asset/UI/BuildingFunction/unselect.png" id="6_sht1c"]
+[ext_resource type="Texture2D" uid="uid://dcj105i1swj6n" path="res://Asset/UI/BuildingFunction/Circle.png" id="7_w31hh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4r7f"]
 animations = [{
@@ -61,3 +62,12 @@ texture_normal = ExtResource("6_sht1c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-3.5, 11)
 shape = SubResource("RectangleShape2D_ya2tp")
+
+[node name="MonkNumBar" type="TextureProgressBar" parent="."]
+offset_left = 66.0
+offset_top = -42.0
+offset_right = 98.0
+offset_bottom = -10.0
+max_value = 10.0
+fill_mode = 4
+texture_progress = ExtResource("7_w31hh")
