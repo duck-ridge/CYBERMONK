@@ -18,6 +18,7 @@ animations = [{
 [node name="Muyu" type="Node2D"]
 position = Vector2(466, 442)
 script = ExtResource("1_v2y4s")
+MuyuClickValue = 5
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

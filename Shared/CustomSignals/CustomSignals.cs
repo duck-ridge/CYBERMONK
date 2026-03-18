@@ -8,7 +8,8 @@ public partial class CustomSignals : Node
 	public delegate void SignalTestEventHandler(string messageFromChef);
 
 	[Signal]
-	public delegate void ClickMuyuEventHandler(string MuyuMessage);
+	public delegate void ClickMuyuEventHandler(int MuyuClickValue);
+	
 
 	[Signal]
 	public delegate void MonkLittleUnlockEventHandler();

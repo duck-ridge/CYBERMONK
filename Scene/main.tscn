@@ -34,7 +34,6 @@ position = Vector2(589, 632)
 position = Vector2(433, 476)
 
 [node name="Muyu" parent="." instance=ExtResource("3_g2yag")]
-visible = false
 position = Vector2(219, 286)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -66,9 +65,6 @@ position = Vector2(294, 462)
 
 [node name="PathStone2" type="Node2D" parent="PathStoneLeave"]
 position = Vector2(440, 615)
-
-[node name="Muyu2" parent="." instance=ExtResource("3_g2yag")]
-position = Vector2(499, 333)
 
 [node name="MonkSystem" type="Node2D" parent="."]
 

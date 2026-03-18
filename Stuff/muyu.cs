@@ -3,6 +3,9 @@ using System;
 
 public partial class muyu : Node2D
 {
+	[Export]
+	public int MuyuClickValue = 1;
+
 	//custom signal singleton 其实是个global
 	private CustomSignals _customSignal;
 	private AudioStreamPlayer _muyusound;
@@ -16,18 +19,13 @@ public partial class muyu : Node2D
 		_muyusound = GetNode<AudioStreamPlayer>("MuyuSound");
 	}
 
-	public void TapTheMuyu(string MuyuMessage)
+	public void TapTheMuyu(int MuyuClickValue)
 	{
-
-		GD.Print(MuyuMessage);
 		_muyusound.Play();
 		Tween tween = GetTree().CreateTween();
 		tween.TweenProperty(this, "scale", new Vector2(1.2f, 1.2f), 0.1).From(Vector2.One);
-		tween.TweenProperty(this, "scale", Vector2.One, 0.1).From(new Vector2(1.2f, 1.2f));
-
-		
+		tween.TweenProperty(this, "scale", Vector2.One, 0.1).From(new Vector2(1.2f, 1.2f));	
 	}
-
 
 	private void OnArea2DInputEvent(Node viewport, InputEvent @event, int shape_index)
 	{
@@ -35,7 +33,7 @@ public partial class muyu : Node2D
 		{
 			if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
 			{
-				_customSignal.EmitSignal(nameof(CustomSignals.ClickMuyu), "2B or Not 2B");
+				_customSignal.EmitSignal(nameof(CustomSignals.ClickMuyu), MuyuClickValue);
 			}
 		}
 		

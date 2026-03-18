@@ -30,7 +30,8 @@ public partial class main : Node2D
         
         // ... 其余逻辑不变 ...
         _customSignal = GetNode<CustomSignals>("/root/CustomSignals");
-        _customSignal.ClickMuyu += (msg) => AddGongde(1);
+        // _customSignal.ClickMuyu += (msg) => AddGongde();
+        _customSignal.ClickMuyu += (value) => AddGongde(value);
         _customSignal.MonkLittleUnlock += OnMonkUnlocked;
         _customSignal.MonkRegisteredToDND += (monk) => registered_monk = monk;
         _customSignal.ReleaseMonkRegisteredToDND += OnReleaseMonk;
