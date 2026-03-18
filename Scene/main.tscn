@@ -34,7 +34,7 @@ position = Vector2(589, 632)
 position = Vector2(433, 476)
 
 [node name="Muyu" parent="." instance=ExtResource("3_g2yag")]
-position = Vector2(219, 286)
+position = Vector2(207, 453)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,28 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu6vpn605kxfu"]
+[gd_scene load_steps=7 format=3 uid="uid://bu6vpn605kxfu"]
 
 [ext_resource type="Script" path="res://Stuff/muyu.cs" id="1_v2y4s"]
-[ext_resource type="Texture2D" uid="uid://b7j84hy24qnue" path="res://Asset/Stuff/muyu.png" id="1_xir3g"]
+[ext_resource type="Texture2D" uid="uid://clprrt86ftjr5" path="res://Asset/Muyu/Gold.PNG" id="2_mjo2v"]
 [ext_resource type="AudioStream" uid="uid://dk4pd0o0atout" path="res://Asset/Sound/MuyuSound.mp3" id="3_kevkk"]
+[ext_resource type="Texture2D" uid="uid://b5ld4mf1ll6ta" path="res://Asset/Muyu/Iron.PNG" id="3_nv6rb"]
+[ext_resource type="Texture2D" uid="uid://cldttrgg8pemu" path="res://Asset/Muyu/Silver.PNG" id="4_fccw2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ba04a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xir3g")
+"texture": ExtResource("2_mjo2v")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nv6rb")
+}],
+"loop": true,
+"name": &"Iron",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fccw2")
+}],
+"loop": true,
+"name": &"Silver",
 "speed": 5.0
 }]
 
 [node name="Muyu" type="Node2D"]
-position = Vector2(466, 442)
 script = ExtResource("1_v2y4s")
-MuyuClickValue = 5
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="MuyuSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ba04a")
+animation = &"Iron"
 
 [node name="Area2D" type="Area2D" parent="."]
 

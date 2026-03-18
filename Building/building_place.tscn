@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://k04qywwexrrq"]
+[gd_scene load_steps=13 format=3 uid="uid://k04qywwexrrq"]
 
 [ext_resource type="Script" path="res://Building/building_place.cs" id="1_gpcxm"]
 [ext_resource type="PackedScene" uid="uid://gkh3xbp0wnal" path="res://Building/temple_0.tscn" id="3_h6kkw"]
@@ -6,9 +6,39 @@
 [ext_resource type="PackedScene" uid="uid://dd7ypcby361fx" path="res://Building/temple_1.tscn" id="5_2bjx7"]
 [ext_resource type="PackedScene" uid="uid://hepi5eejw4sh" path="res://Building/temple_3.tscn" id="5_lqfyx"]
 [ext_resource type="Script" path="res://Building/temple_3.cs" id="6_fc6ui"]
+[ext_resource type="Texture2D" uid="uid://bavq5qcjsueuc" path="res://Asset/Building/BuildingProcess.png" id="7_dwr5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeda3"]
 size = Vector2(44, 40.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd84n"]
+atlas = ExtResource("7_dwr5g")
+region = Rect2(0, 0, 287, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h72ae"]
+atlas = ExtResource("7_dwr5g")
+region = Rect2(287, 0, 287, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdqns"]
+atlas = ExtResource("7_dwr5g")
+region = Rect2(574, 0, 287, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8m83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd84n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h72ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdqns")
+}],
+"loop": true,
+"name": &"Build",
+"speed": 5.0
+}]
 
 [node name="BuildingPlace" type="Node2D"]
 position = Vector2(1, -1)
@@ -37,3 +67,9 @@ script = ExtResource("6_fc6ui")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -19.75)
 shape = SubResource("RectangleShape2D_jeda3")
+
+[node name="BuildingProcess" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -21)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_u8m83")
+animation = &"Build"

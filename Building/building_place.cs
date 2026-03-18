@@ -1,9 +1,10 @@
 using Godot;
 using System;
 using Godot.Collections;
-
+using System.Threading.Tasks;
 public partial class building_place : Node2D
 {
+    private AnimatedSprite2D _buildingprocess;
     // 使用数组或字典管理建筑，比单独定义变量更易于扩展
     private Node2D[] _temples = new Node2D[4];
     private Node2D _buildingsContainer;
@@ -12,6 +13,9 @@ public partial class building_place : Node2D
 
     public override void _Ready()
     {
+        _buildingprocess = GetNode<AnimatedSprite2D>("BuildingProcess");
+        _buildingprocess.Hide();
+
         // 1. 初始化引用
         _buildingsContainer = GetNode<Node2D>("Building");
         
@@ -31,10 +35,13 @@ public partial class building_place : Node2D
 
         // 2. 初始状态：只显示 Temple0
         change_building(0);
+        _buildingprocess.Show();
     }
+
 
     public void change_building(int building_code)
     {
+
         active_building_num = building_code;
 
         // 遍历所有建筑，匹配 code 的显示，其他的隐藏
