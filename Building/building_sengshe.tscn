@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxpttr3cspni1"]
+
+[ext_resource type="Script" path="res://Building/building_sengshe.gd" id="1_niiw5"]
+[ext_resource type="Texture2D" uid="uid://b7ls7ld5lbmj3" path="res://Asset/Building/SengShe.png" id="2_vothv"]
+[ext_resource type="Texture2D" uid="uid://yhylt7pmcthi" path="res://Asset/UI/upgrade.png" id="3_lwyyg"]
+[ext_resource type="Texture2D" uid="uid://buob8yuf8uhhs" path="res://Asset/UI/downgrade_normal.PNG" id="4_rpt6s"]
+[ext_resource type="Texture2D" uid="uid://bnnec8lk4yviu" path="res://Asset/UI/downgrade_hover.PNG" id="5_30b66"]
+[ext_resource type="Texture2D" uid="uid://c6x2xe4m78hru" path="res://Asset/UI/work.png" id="5_hqguf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy707"]
+atlas = ExtResource("2_vothv")
+region = Rect2(0, 0, 83, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xyj0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy707")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5skl"]
+size = Vector2(68, 64)
+
+[node name="BuildingSengShe" type="Node2D"]
+script = ExtResource("1_niiw5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -42.5)
+sprite_frames = SubResource("SpriteFrames_xyj0n")
+frame_progress = 0.254512
+metadata/_edit_lock_ = true
+
+[node name="ClickArea" type="Area2D" parent="."]
+position = Vector2(0.5, -42.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_w5skl")
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -100.0
+offset_top = -140.0
+offset_right = 100.0
+offset_bottom = -76.0
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(100, 31)
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_lwyyg")
+
+[node name="TextureRect2" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_rpt6s")
+texture_hover = ExtResource("5_30b66")
+
+[node name="TextureRect3" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_hqguf")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

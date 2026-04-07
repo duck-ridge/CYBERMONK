@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wdxdftgjdwpb"
-path="res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"
+uid="uid://c31fkocp8ndv7"
+path="res://.godot/imported/LuoHanTang.png-f9b751f85c198a789f7ef17ba811b950.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Building/PlaceHolder.png"
-dest_files=["res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"]
+source_file="res://Asset/Building/LuoHanTang.png"
+dest_files=["res://.godot/imported/LuoHanTang.png-f9b751f85c198a789f7ef17ba811b950.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wdxdftgjdwpb"
-path="res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"
+uid="uid://ci3q07u6hl0b7"
+path="res://.godot/imported/MkLittleWalk.png-96f661cd5023595b66436c5107bb2722.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Building/PlaceHolder.png"
-dest_files=["res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"]
+source_file="res://Asset/Monks/MonkLilttle/MkLittleWalk.png"
+dest_files=["res://.godot/imported/MkLittleWalk.png-96f661cd5023595b66436c5107bb2722.ctex"]
 
 [params]
 

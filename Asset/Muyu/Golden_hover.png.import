@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wdxdftgjdwpb"
-path="res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"
+uid="uid://bpttvsyiju47o"
+path="res://.godot/imported/Golden_hover.png-fd9aa9413b522d4e8f607234e018f8ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Building/PlaceHolder.png"
-dest_files=["res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"]
+source_file="res://Asset/Muyu/Golden_hover.png"
+dest_files=["res://.godot/imported/Golden_hover.png-fd9aa9413b522d4e8f607234e018f8ac.ctex"]
 
 [params]
 

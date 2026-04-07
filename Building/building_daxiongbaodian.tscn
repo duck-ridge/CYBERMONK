@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://j35ldbwss7x2"]
+
+[ext_resource type="Script" path="res://Building/building_daxiongbaodian.gd" id="1_mdyw6"]
+[ext_resource type="Texture2D" uid="uid://bs1miplanwwc5" path="res://Asset/Building/DaXiongBaoDian.png" id="2_pxdsq"]
+[ext_resource type="Texture2D" uid="uid://yhylt7pmcthi" path="res://Asset/UI/upgrade.png" id="3_mwn7i"]
+[ext_resource type="Texture2D" uid="uid://buob8yuf8uhhs" path="res://Asset/UI/downgrade_normal.PNG" id="4_pydxt"]
+[ext_resource type="Texture2D" uid="uid://c6x2xe4m78hru" path="res://Asset/UI/work.png" id="5_aqx4q"]
+[ext_resource type="Texture2D" uid="uid://bnnec8lk4yviu" path="res://Asset/UI/downgrade_hover.PNG" id="5_gepvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prfbg"]
+atlas = ExtResource("2_pxdsq")
+region = Rect2(0, 0, 240, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ta5ol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prfbg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqbgj"]
+size = Vector2(172, 96)
+
+[node name="BuildingDaXiongBaoDian" type="Node2D"]
+script = ExtResource("1_mdyw6")
+allow_occupied = false
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -60)
+sprite_frames = SubResource("SpriteFrames_ta5ol")
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -100.0
+offset_top = -140.0
+offset_right = 100.0
+offset_bottom = -76.0
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(100, 31)
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_mwn7i")
+
+[node name="TextureRect2" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_pydxt")
+texture_hover = ExtResource("5_gepvx")
+
+[node name="TextureRect3" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_aqx4q")
+
+[node name="ClickArea" type="Area2D" parent="."]
+position = Vector2(0, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(-1, 13)
+shape = SubResource("RectangleShape2D_dqbgj")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

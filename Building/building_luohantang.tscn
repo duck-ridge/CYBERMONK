@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://dnydyp7pvylm2"]
+
+[ext_resource type="Script" path="res://Building/building_luohantang.gd" id="1_g83cj"]
+[ext_resource type="Texture2D" uid="uid://c31fkocp8ndv7" path="res://Asset/Building/LuoHanTang.png" id="2_fskpy"]
+[ext_resource type="Texture2D" uid="uid://yhylt7pmcthi" path="res://Asset/UI/upgrade.png" id="3_7f57c"]
+[ext_resource type="Texture2D" uid="uid://buob8yuf8uhhs" path="res://Asset/UI/downgrade_normal.PNG" id="4_dcur6"]
+[ext_resource type="Texture2D" uid="uid://bnnec8lk4yviu" path="res://Asset/UI/downgrade_hover.PNG" id="5_2mayg"]
+[ext_resource type="Texture2D" uid="uid://c6x2xe4m78hru" path="res://Asset/UI/work.png" id="5_yl47p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jfdp"]
+atlas = ExtResource("2_fskpy")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1apxc"]
+atlas = ExtResource("2_fskpy")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4sso"]
+atlas = ExtResource("2_fskpy")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ta5ol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jfdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1apxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4sso")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4hg0"]
+size = Vector2(187, 116)
+
+[node name="BuildingLuohantang" type="Node2D"]
+script = ExtResource("1_g83cj")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -65)
+sprite_frames = SubResource("SpriteFrames_ta5ol")
+metadata/_edit_group_ = true
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -100.0
+offset_top = -140.0
+offset_right = 100.0
+offset_bottom = -76.0
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(100, 31)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_7f57c")
+
+[node name="TextureRect2" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_dcur6")
+texture_hover = ExtResource("5_2mayg")
+
+[node name="TextureRect3" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_yl47p")
+
+[node name="ClickArea" type="Area2D" parent="."]
+position = Vector2(0, -4)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(-2.5, -55)
+shape = SubResource("RectangleShape2D_y4hg0")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

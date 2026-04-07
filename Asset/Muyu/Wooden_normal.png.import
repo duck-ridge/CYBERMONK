@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wdxdftgjdwpb"
-path="res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"
+uid="uid://dgjk8uc8qs3x0"
+path="res://.godot/imported/Wooden_normal.png-ad33332d97b8e7c77f888b63cfad7f5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Building/PlaceHolder.png"
-dest_files=["res://.godot/imported/PlaceHolder.png-8af470076cdfb60c3f00ec47c249199f.ctex"]
+source_file="res://Asset/Muyu/Wooden_normal.png"
+dest_files=["res://.godot/imported/Wooden_normal.png-ad33332d97b8e7c77f888b63cfad7f5e.ctex"]
 
 [params]
 

@@ -1,0 +1,164 @@
+[gd_scene load_steps=17 format=3 uid="uid://dcvivr50u7i8h"]
+
+[ext_resource type="Texture2D" uid="uid://wdxdftgjdwpb" path="res://Asset/Building/PlaceHolder.png" id="1_moowg"]
+[ext_resource type="Script" path="res://Building/building_empty.gd" id="1_s53sw"]
+[ext_resource type="Texture2D" uid="uid://cxmqxwxsxdemk" path="res://Asset/Building/BuildingProcess.png" id="3_gr8lj"]
+[ext_resource type="Texture2D" uid="uid://b804nsuhxhysu" path="res://Asset/UI/BuildingMenu.png" id="3_tsm80"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u48ij"]
+atlas = ExtResource("1_moowg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv88p"]
+atlas = ExtResource("1_moowg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbnh0"]
+atlas = ExtResource("1_moowg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkgyv"]
+atlas = ExtResource("1_moowg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54cbx"]
+atlas = ExtResource("3_gr8lj")
+region = Rect2(0, 0, 287, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdkjf"]
+atlas = ExtResource("3_gr8lj")
+region = Rect2(287, 0, 287, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yevss"]
+atlas = ExtResource("3_gr8lj")
+region = Rect2(574, 0, 287, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdxyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u48ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv88p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbnh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkgyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54cbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdkjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yevss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdkjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54cbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdkjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yevss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdkjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54cbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdkjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yevss")
+}],
+"loop": false,
+"name": &"working",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0e5q"]
+size = Vector2(20, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp7mp"]
+atlas = ExtResource("3_tsm80")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqeiq"]
+atlas = ExtResource("3_tsm80")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pdo8"]
+atlas = ExtResource("3_tsm80")
+region = Rect2(128, 0, 64, 64)
+
+[node name="BuildingEmpty" type="Node2D"]
+script = ExtResource("1_s53sw")
+metadata/_edit_lock_ = true
+
+[node name="AniSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -38)
+sprite_frames = SubResource("SpriteFrames_rdxyj")
+
+[node name="ClickArea" type="Area2D" parent="."]
+position = Vector2(0, -38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+shape = SubResource("RectangleShape2D_l0e5q")
+
+[node name="BuildingMenu" type="Node2D" parent="."]
+position = Vector2(0, -38)
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -83.0
+offset_right = 100.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(100, 31)
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="SengsheBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_wp7mp")
+
+[node name="LuohantangBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_cqeiq")
+
+[node name="DaxiongbaodianBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_3pdo8")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
+[connection signal="pressed" from="MenuPanel/HBoxContainer/SengsheBtn" to="." method="_on_sengshe_btn_pressed"]
+[connection signal="pressed" from="MenuPanel/HBoxContainer/LuohantangBtn" to="." method="_on_luohantang_btn_pressed"]
+[connection signal="pressed" from="MenuPanel/HBoxContainer/DaxiongbaodianBtn" to="." method="_on_daxiongbaodian_btn_pressed"]
