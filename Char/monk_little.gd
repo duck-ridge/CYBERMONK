@@ -1,9 +1,20 @@
 extends CharacterBody2D
 class_name MonkLittle
 
+
 var is_grabbed: bool = false
 
 var gravity = 980
+
+enum MonkType {
+	LITTLE,
+	BIG,
+	MASTER,
+	VISITOR
+}
+
+var monk_code = MonkType.LITTLE
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$StateMachine.ready_start()
@@ -27,8 +38,10 @@ func _on_click_area_input_event(viewport, event, shape_idx):
 				is_grabbed = true
 				Global.emit_signal("monk_grabbed", self)
 			else:
+				
 				release_grab()
 		if event.is_released():
+			
 			release_grab()
 
 

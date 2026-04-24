@@ -2,11 +2,18 @@ extends Node2D
 
 var registered_monk
 var gongde_sum: int = 0
+		
+var scroll_x
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.connect("monk_grabbed", register_monk)
 	Global.connect("monk_drop_pos", drop_monk)
 	Global.connect("add_gongde", update_gongde)
+	Global.connect("luohantang_panel", check_luohan_panel)
+	gongde_sum = DataLoader.main_csv.get("gongde_sum")
+	print(gongde_sum)
+	update_gongde(0)
 	
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP, false)
 	DisplayServer.window_set_flag(6, true)
@@ -48,8 +55,9 @@ func _set_click_through(size: Vector2i):
 	# 然后你需要在宠物节点（Sprite）上单独处理点击逻辑。
 	var empty_area = PackedVector2Array() 
 	DisplayServer.window_set_mouse_passthrough(empty_area)
-	
-	# 注意：如果你希望只有宠物能被点到，你需要在这里传入宠物图片的四个角坐标。
+	#print(DataLoader.main_csv)
+	#print(DataLoader.keys())
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _align_window_to_bottom():
 	# 获取当前屏幕索引
 	var screen = DisplayServer.window_get_current_screen()
@@ -63,7 +71,7 @@ func _align_window_to_bottom():
 	
 func update_gongde(gongde):
 	gongde_sum += gongde
-	$CanvasLayer/GongdeLabel.text = str(gongde_sum)
+	$CanvasLayer/HUD/HBox/GongdeLabel.text = str(gongde_sum)
 	
 func check_through_buildings(pos):
 	var b_pool: Array
@@ -91,17 +99,17 @@ func _unhandled_input(event):
 					b.hide_menu()
 				for b in $EmptyBuildingSystem.get_children():
 					b.hide_menu()
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
-		
-		
-var scroll_x: float
+			else:
+				for m in $MonkSystem.get_children():
+					m.release_grab()
 func _input(event):
 	scroll_x = Input.get_axis("ui_left", "ui_right")
-	
+	if Input.is_action_pressed("ui_accept"):
+		DataLoader.save_dict_to_csv("res://DATA/MainDATA.csv", {"gongde_sum": gongde_sum})
 	
 func _physics_process(delta):
-	if scroll_x != 0:
+	if scroll_x != 0 and scroll_x != null:
+		
 		$CanvasLayer/HScrollBar.value += scroll_x
 		$CanvasLayer/HScrollBar.emit_signal("scrolling")
 func register_monk(monk):
@@ -122,4 +130,13 @@ func _on_muyu_timer_timeout():
 	$CanvasLayer/MuyuButton.tap_muyu()
 	
 func _on_h_scroll_bar_scrolling():
-	$Camera2D.offset.x = $CanvasLayer/HScrollBar.value * 10 + 576
+	
+	$Camera2D.offset.x = $CanvasLayer/HScrollBar.value * 3 + 940
+
+func check_luohan_panel(panel_on_off):
+	match panel_on_off:
+		true:
+			$CanvasLayer/LuohanTangHUD.show()
+		false:
+			$CanvasLayer/LuohanTangHUD.hide()
+		

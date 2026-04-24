@@ -59,3 +59,8 @@ func hide_menu():
 	if not menu_tween.is_valid(): 
 		$MenuPanel.hide()
 	$MenuPanel.hide()
+
+
+func _on_work_btn_pressed():
+	Global.emit_signal("luohantang_panel", true)
+

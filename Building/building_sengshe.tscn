@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxpttr3cspni1"]
+[gd_scene load_steps=15 format=3 uid="uid://cxpttr3cspni1"]
 
 [ext_resource type="Script" path="res://Building/building_sengshe.gd" id="1_niiw5"]
 [ext_resource type="Texture2D" uid="uid://b7ls7ld5lbmj3" path="res://Asset/Building/SengShe.png" id="2_vothv"]
-[ext_resource type="Texture2D" uid="uid://yhylt7pmcthi" path="res://Asset/UI/upgrade.png" id="3_lwyyg"]
-[ext_resource type="Texture2D" uid="uid://buob8yuf8uhhs" path="res://Asset/UI/downgrade_normal.PNG" id="4_rpt6s"]
-[ext_resource type="Texture2D" uid="uid://bnnec8lk4yviu" path="res://Asset/UI/downgrade_hover.PNG" id="5_30b66"]
-[ext_resource type="Texture2D" uid="uid://c6x2xe4m78hru" path="res://Asset/UI/work.png" id="5_hqguf"]
+[ext_resource type="Texture2D" uid="uid://d3muqatx2bdi8" path="res://Asset/UI/upgrade_normal.png" id="3_3l3ib"]
+[ext_resource type="Texture2D" uid="uid://dfeq6ri12tjbq" path="res://Asset/UI/PanelMenuBG.png" id="3_c2icq"]
+[ext_resource type="Texture2D" uid="uid://c08iuwa5pwgvk" path="res://Asset/UI/upgrade_hover.png" id="4_2b1yn"]
+[ext_resource type="Texture2D" uid="uid://bnnec8lk4yviu" path="res://Asset/UI/downgrade_normal.png" id="4_rpt6s"]
+[ext_resource type="Texture2D" uid="uid://buob8yuf8uhhs" path="res://Asset/UI/downgrade_hover.png" id="5_30b66"]
+[ext_resource type="Texture2D" uid="uid://b2u0ky0mx80hd" path="res://Asset/UI/work_normal.png" id="6_4syo7"]
+[ext_resource type="PackedScene" uid="uid://dspncdxhl27c" path="res://UI/occu_btn.tscn" id="7_e2c1y"]
+[ext_resource type="Texture2D" uid="uid://bgv6ksq06pnuk" path="res://Asset/UI/work_hover.png" id="7_twtwg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vy707"]
 atlas = ExtResource("2_vothv")
@@ -25,6 +29,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5skl"]
 size = Vector2(68, 64)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jgn1q"]
+texture = ExtResource("3_c2icq")
+texture_margin_left = 30.0
+texture_margin_top = 40.0
+texture_margin_right = 30.0
+texture_margin_bottom = 45.0
+
 [node name="BuildingSengShe" type="Node2D"]
 script = ExtResource("1_niiw5")
 
@@ -42,31 +53,68 @@ position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_w5skl")
 
 [node name="MenuPanel" type="PanelContainer" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -100.0
-offset_top = -140.0
-offset_right = 100.0
-offset_bottom = -76.0
-scale = Vector2(2.08165e-12, 2.08165e-12)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -180.0
+offset_right = 90.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(100, 31)
+theme_override_styles/panel = SubResource("StyleBoxTexture_jgn1q")
 metadata/_edit_group_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPanel"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 alignment = 1
-metadata/_edit_group_ = true
 
-[node name="TextureRect" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="UpgradeBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_lwyyg")
+texture_normal = ExtResource("3_3l3ib")
+texture_hover = ExtResource("4_2b1yn")
 
-[node name="TextureRect2" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="WorkBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_4syo7")
+texture_hover = ExtResource("7_twtwg")
+
+[node name="DowngradeBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_rpt6s")
 texture_hover = ExtResource("5_30b66")
 
-[node name="TextureRect3" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = -40.0
+offset_right = 73.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-texture_normal = ExtResource("5_hqguf")
+alignment = 1
+
+[node name="OccuBtn1" parent="PanelContainer/VBoxContainer" instance=ExtResource("7_e2c1y")]
+layout_mode = 2
+
+[node name="OccuBtn2" parent="PanelContainer/VBoxContainer" instance=ExtResource("7_e2c1y")]
+layout_mode = 2
+
+[node name="OccuBtn3" parent="PanelContainer/VBoxContainer" instance=ExtResource("7_e2c1y")]
+layout_mode = 2
+
+[node name="MonkResidence" type="Node2D" parent="."]
 
 [connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

@@ -1,3 +1,5 @@
-res://Char/monk_little.tscn
 res://Scene/scene_main.tscn
-res://Scene/scene_main.gd
+res://Asset/Menu/MenuStyleBox.tres
+res://Char/monk_little.tscn
+res://Func/luohan_tang_hud.tscn
+res://Building/building_luohantang.tscn

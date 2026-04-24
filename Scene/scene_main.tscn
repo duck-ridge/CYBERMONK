@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bx1hvmqudomsv"]
+[gd_scene load_steps=19 format=3 uid="uid://bx1hvmqudomsv"]
 
 [ext_resource type="Script" path="res://Scene/scene_main.gd" id="1_lcdjb"]
 [ext_resource type="Texture2D" uid="uid://2q8fml8112j7" path="res://Asset/BG/BG.PNG" id="2_5w2ao"]
@@ -8,16 +8,27 @@
 [ext_resource type="PackedScene" uid="uid://j35ldbwss7x2" path="res://Building/building_daxiongbaodian.tscn" id="5_7xc3w"]
 [ext_resource type="Script" path="res://Scene/MuyuButton.gd" id="5_vc3tu"]
 [ext_resource type="AudioStream" uid="uid://d1at1f1v44hpm" path="res://Asset/Sound/MuyuSound.mp3" id="6_y87uw"]
+[ext_resource type="PackedScene" uid="uid://dtt6mmr6him0s" path="res://Char/monk_big.tscn" id="7_lq5v1"]
 [ext_resource type="Texture2D" uid="uid://dgjk8uc8qs3x0" path="res://Asset/Muyu/Wooden_normal.png" id="7_oosbh"]
 [ext_resource type="Texture2D" uid="uid://cakl2nxir8lgd" path="res://Asset/Muyu/Wooden_hover.png" id="8_odmnq"]
 [ext_resource type="PackedScene" uid="uid://dnydyp7pvylm2" path="res://Building/building_luohantang.tscn" id="11_lyodh"]
+[ext_resource type="Texture2D" uid="uid://chlaeq13lsev6" path="res://Asset/ScoreBoard/scoreboardBG.png" id="13_pve4c"]
+[ext_resource type="Texture2D" uid="uid://dvv2sa7h2nvq2" path="res://Asset/ScoreBoard/gongde.png" id="14_760ys"]
+[ext_resource type="Texture2D" uid="uid://dtcd67e7o0dgi" path="res://Asset/ScoreBoard/xianghuo.png" id="15_br6ji"]
+[ext_resource type="PackedScene" uid="uid://bxtuenc8wp28y" path="res://Func/luohan_tang_hud.tscn" id="16_1cgrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjga7"]
 size = Vector2(2048, 15)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_neks1"]
+texture = ExtResource("13_pve4c")
+texture_margin_left = 23.0
+texture_margin_top = 8.0
+texture_margin_right = 23.0
+texture_margin_bottom = 8.0
+
 [node name="SceneMain" type="Node2D"]
 script = ExtResource("1_lcdjb")
-metadata/_edit_lock_ = true
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(0, 258)
@@ -40,13 +51,13 @@ shape = SubResource("RectangleShape2D_wjga7")
 position = Vector2(965, 158)
 
 [node name="BuildingDaXiongBaoDian2" parent="BuildingSystem" instance=ExtResource("5_7xc3w")]
-position = Vector2(382, 155)
+position = Vector2(382, 158)
 
 [node name="BuildingSengShe" parent="BuildingSystem" instance=ExtResource("4_onao2")]
 position = Vector2(564, 234)
 
 [node name="BuildingLuohantang" parent="BuildingSystem" instance=ExtResource("11_lyodh")]
-position = Vector2(142, 159)
+position = Vector2(112, 160)
 
 [node name="MonkSystem" type="Node2D" parent="."]
 
@@ -54,13 +65,16 @@ position = Vector2(142, 159)
 position = Vector2(750, 116)
 
 [node name="MonkLittle2" parent="MonkSystem" instance=ExtResource("3_2dhyy")]
-position = Vector2(187, 104)
+position = Vector2(188, 125)
 
 [node name="MonkLittle3" parent="MonkSystem" instance=ExtResource("3_2dhyy")]
 position = Vector2(591, 116)
 
 [node name="MonkLittle4" parent="MonkSystem" instance=ExtResource("3_2dhyy")]
-position = Vector2(404, 105)
+position = Vector2(404, 126)
+
+[node name="MonkBig" parent="MonkSystem" instance=ExtResource("7_lq5v1")]
+position = Vector2(240, 136)
 
 [node name="EmptyBuildingSystem" type="Node2D" parent="."]
 position = Vector2(1024, 392)
@@ -73,16 +87,73 @@ position = Vector2(-126, -158)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="HUD" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -66.0
+offset_right = -31.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(126, 32)
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_neks1")
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 2
+alignment = 1
+
+[node name="GongdeTexture" type="TextureRect" parent="CanvasLayer/HUD/HBox"]
+layout_mode = 2
+texture = ExtResource("14_760ys")
+
+[node name="GongdeLabel" type="Label" parent="CanvasLayer/HUD/HBox"]
+layout_mode = 2
+text = "00000"
+horizontal_alignment = 2
+
+[node name="XianghuoTexture" type="TextureRect" parent="CanvasLayer/HUD/HBox"]
+layout_mode = 2
+texture = ExtResource("15_br6ji")
+
+[node name="XianghuoLabel" type="Label" parent="CanvasLayer/HUD/HBox"]
+layout_mode = 2
+text = "00000"
+horizontal_alignment = 1
+
+[node name="HScrollBar" type="HScrollBar" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+page = 5.0
+custom_step = 5.0
+metadata/_edit_lock_ = true
+
 [node name="MuyuButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 1748.0
-offset_top = 179.0
-offset_right = 1813.0
-offset_bottom = 226.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = -63.0
+offset_right = -220.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(32, 23)
 texture_normal = ExtResource("7_oosbh")
 texture_hover = ExtResource("8_odmnq")
 script = ExtResource("5_vc3tu")
-metadata/_edit_use_anchors_ = true
 
 [node name="LvUpButton" type="Button" parent="CanvasLayer/MuyuButton"]
 layout_mode = 1
@@ -95,7 +166,6 @@ offset_right = -0.0300024
 offset_bottom = -58.632
 pivot_offset = Vector2(38, 16)
 text = "Level Up"
-metadata/_edit_use_anchors_ = true
 
 [node name="MuyuTimer" type="Timer" parent="CanvasLayer/MuyuButton"]
 wait_time = 2.0
@@ -103,38 +173,13 @@ wait_time = 2.0
 [node name="MuyuSound" type="AudioStreamPlayer" parent="CanvasLayer/MuyuButton"]
 stream = ExtResource("6_y87uw")
 
-[node name="GongdeLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-offset_left = 1834.0
-offset_top = 192.0
-offset_right = 1874.0
-offset_bottom = 219.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(985, 600)
-text = "x
-"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
-
-[node name="HScrollBar" type="HScrollBar" parent="CanvasLayer"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -17.0
-grow_horizontal = 2
-grow_vertical = 0
-page = 15.0
-custom_step = 10.0
-metadata/_edit_lock_ = true
+[node name="LuohanTangHUD" parent="CanvasLayer" instance=ExtResource("16_1cgrc")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(576, 128)
-limit_left = -580
+offset = Vector2(940, 128)
 
+[connection signal="scrolling" from="CanvasLayer/HScrollBar" to="." method="_on_h_scroll_bar_scrolling"]
 [connection signal="pressed" from="CanvasLayer/MuyuButton" to="." method="_on_muyu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MuyuButton/LvUpButton" to="." method="_on_lv_up_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/MuyuButton/MuyuTimer" to="." method="_on_muyu_timer_timeout"]
-[connection signal="scrolling" from="CanvasLayer/HScrollBar" to="." method="_on_h_scroll_bar_scrolling"]

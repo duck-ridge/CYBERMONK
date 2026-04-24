@@ -1,2 +1,14 @@
+Button
+Timer
+LineEdit
+Label
+Node2D
+VBoxContainer
+PanelContainer
 AnimatedSprite2D
-TextureProgressBar
+TextureRect
+HBoxContainer
+Sprite2D
+TextureButton
+Area2D
+Control

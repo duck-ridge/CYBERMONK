@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dspncdxhl27c"]
+
+[ext_resource type="Script" path="res://UI/occu_btn.gd" id="2_56e24"]
+
+[node name="OccuBtn" type="TextureButton"]
+script = ExtResource("2_56e24")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

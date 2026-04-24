@@ -1,0 +1,163 @@
+[gd_scene load_steps=25 format=3 uid="uid://dtt6mmr6him0s"]
+
+[ext_resource type="Script" path="res://Char/monk_big.gd" id="1_uu8r6"]
+[ext_resource type="Texture2D" uid="uid://b43y4527hmybw" path="res://Asset/Monks/MonkLilttle/MkLittleMeditation.png" id="2_g6myr"]
+[ext_resource type="Texture2D" uid="uid://c22utyb6x3x7s" path="res://Asset/Profile/Occupied_outer.png" id="2_mxc0f"]
+[ext_resource type="Texture2D" uid="uid://ci3q07u6hl0b7" path="res://Asset/Monks/MonkLilttle/MkLittleWalk.png" id="3_4jdp8"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="4_1tl3r"]
+[ext_resource type="Script" path="res://StateMachine/MonkWalk.gd" id="5_vxrtr"]
+[ext_resource type="Script" path="res://StateMachine/MonkMeditation.gd" id="6_i2w43"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_070qs"]
+atlas = ExtResource("2_g6myr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2hm1"]
+atlas = ExtResource("2_g6myr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djieg"]
+atlas = ExtResource("2_g6myr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggmyd"]
+atlas = ExtResource("2_g6myr")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nrx1"]
+atlas = ExtResource("2_g6myr")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m22l"]
+atlas = ExtResource("2_g6myr")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lewsh"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(0, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amhc8"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(67, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4r1l"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(134, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbhmt"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(201, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfyk8"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(268, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnrud"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(335, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml6ct"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(402, 0, 67, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo34g"]
+atlas = ExtResource("3_4jdp8")
+region = Rect2(469, 0, 67, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cea8d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_070qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2hm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djieg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggmyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nrx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m22l")
+}],
+"loop": true,
+"name": &"Meditation",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lewsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amhc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4r1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbhmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfyk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnrud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml6ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo34g")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3bcs"]
+radius = 18.0
+height = 74.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojxpo"]
+radius = 17.0
+
+[node name="MonkBig" type="CharacterBody2D"]
+collision_mask = 4
+script = ExtResource("1_uu8r6")
+
+[node name="CanDelete" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -30)
+texture = ExtResource("2_mxc0f")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cea8d")
+animation = &"Meditation"
+
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(1, -3)
+shape = SubResource("CapsuleShape2D_m3bcs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 17)
+shape = SubResource("CircleShape2D_ojxpo")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_1tl3r")
+initial_state = NodePath("MonkMeditation")
+
+[node name="MonkWalk" type="Node" parent="StateMachine" node_paths=PackedStringArray("monk")]
+script = ExtResource("5_vxrtr")
+monk = NodePath("../..")
+
+[node name="MonkMeditation" type="Node" parent="StateMachine" node_paths=PackedStringArray("monk")]
+script = ExtResource("6_i2w43")
+monk = NodePath("../..")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

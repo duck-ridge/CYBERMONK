@@ -1,0 +1,163 @@
+[gd_scene load_steps=14 format=3 uid="uid://c75wqaqki365f"]
+
+[ext_resource type="StyleBox" uid="uid://trceivgdaa8f" path="res://Asset/Menu/MenuStyleBox.tres" id="1_paup6"]
+[ext_resource type="Texture2D" uid="uid://ckajt2bqdy864" path="res://Asset/Menu/BuildingSetMenu/main_normal.png" id="2_j7pnl"]
+[ext_resource type="Texture2D" uid="uid://d3h32awqhxfqa" path="res://Asset/Menu/BuildingSetMenu/main_hover.png" id="3_55804"]
+[ext_resource type="Texture2D" uid="uid://dmxrs8sjthwfe" path="res://Asset/Menu/BuildingSetMenu/side_normal.png" id="4_b1nra"]
+[ext_resource type="Texture2D" uid="uid://bym4s7ee68rle" path="res://Asset/Menu/BuildingSetMenu/side_hoverpng.PNG" id="5_nafn1"]
+[ext_resource type="Texture2D" uid="uid://dhs5jsuqe6rnt" path="res://Asset/Menu/BuildingSetMenu/other_normal.PNG" id="6_kfn83"]
+[ext_resource type="Texture2D" uid="uid://bd1lsaj4aqvwo" path="res://Asset/Menu/BuildingSetMenu/other_hover.png" id="7_jun4o"]
+[ext_resource type="Texture2D" uid="uid://7gdje1e1t2vd" path="res://Asset/Menu/BuildingMenu/Daxiongbaodian_icon_normal.png" id="8_ywlax"]
+[ext_resource type="Texture2D" uid="uid://d1rh6fjmy0pys" path="res://Asset/Menu/BuildingMenu/Daxiongbaodian_icon_hover.png" id="9_72ox3"]
+[ext_resource type="Texture2D" uid="uid://bgf7ntifm08jb" path="res://Asset/Menu/BuildingMenu/Sengshe_icon_normal.png" id="10_s4bfq"]
+[ext_resource type="Texture2D" uid="uid://c5h6yv03h2ptm" path="res://Asset/Menu/BuildingMenu/Sengshe_icon_hover.png" id="11_1pt52"]
+[ext_resource type="Texture2D" uid="uid://drvue1tend03v" path="res://Asset/Menu/BuildingMenu/Luohantang_icon_normal.png.PNG" id="12_e0hwf"]
+[ext_resource type="Texture2D" uid="uid://bol4kl2q7ngwa" path="res://Asset/Menu/BuildingMenu/Luohantang_icon_hover.png" id="13_n4lmh"]
+
+[node name="HusMenuSystem" type="Node2D"]
+position = Vector2(234, 193)
+metadata/_edit_group_ = true
+
+[node name="HusMenuPanel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -179.0
+offset_right = 82.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(82, 125)
+theme_override_styles/panel = ExtResource("1_paup6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HusMenuPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MainSet" type="TextureButton" parent="HusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_j7pnl")
+texture_hover = ExtResource("3_55804")
+
+[node name="SideSet" type="TextureButton" parent="HusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_b1nra")
+texture_hover = ExtResource("5_nafn1")
+
+[node name="Other" type="TextureButton" parent="HusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_kfn83")
+texture_hover = ExtResource("7_jun4o")
+
+[node name="MainHusMenuPanel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -179.0
+offset_right = 83.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_paup6")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHusMenuPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Daxiongbaodian" type="TextureButton" parent="MainHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_ywlax")
+texture_hover = ExtResource("9_72ox3")
+
+[node name="Da2" type="TextureButton" parent="MainHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_ywlax")
+texture_hover = ExtResource("9_72ox3")
+
+[node name="Da3" type="TextureButton" parent="MainHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_ywlax")
+texture_hover = ExtResource("9_72ox3")
+
+[node name="SideHusMenuPanel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -179.0
+offset_right = 83.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_paup6")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SideHusMenuPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Sengshe" type="TextureButton" parent="SideHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_s4bfq")
+texture_hover = ExtResource("11_1pt52")
+
+[node name="Seng2" type="TextureButton" parent="SideHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_s4bfq")
+texture_hover = ExtResource("11_1pt52")
+
+[node name="Seng3" type="TextureButton" parent="SideHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_s4bfq")
+texture_hover = ExtResource("11_1pt52")
+
+[node name="OtherHusMenuPanel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -179.0
+offset_right = 83.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_paup6")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OtherHusMenuPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Luohan" type="TextureButton" parent="OtherHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_e0hwf")
+texture_hover = ExtResource("13_n4lmh")
+
+[node name="Luo2" type="TextureButton" parent="OtherHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_e0hwf")
+texture_hover = ExtResource("13_n4lmh")
+
+[node name="Luo3" type="TextureButton" parent="OtherHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_e0hwf")
+texture_hover = ExtResource("13_n4lmh")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnnec8lk4yviu"
-path="res://.godot/imported/downgrade_hover.PNG-db80d68e46dcbd76d8952451ff2bb3c8.ctex"
+uid="uid://buob8yuf8uhhs"
+path="res://.godot/imported/downgrade_hover.png-b7bfff6c433b51fbcfac711a3d21e501.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/UI/downgrade_hover.PNG"
-dest_files=["res://.godot/imported/downgrade_hover.PNG-db80d68e46dcbd76d8952451ff2bb3c8.ctex"]
+source_file="res://Asset/UI/downgrade_hover.png"
+dest_files=["res://.godot/imported/downgrade_hover.png-b7bfff6c433b51fbcfac711a3d21e501.ctex"]
 
 [params]
 

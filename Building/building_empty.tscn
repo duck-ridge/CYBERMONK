@@ -1,9 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcvivr50u7i8h"]
+[gd_scene load_steps=26 format=3 uid="uid://dcvivr50u7i8h"]
 
 [ext_resource type="Texture2D" uid="uid://wdxdftgjdwpb" path="res://Asset/Building/PlaceHolder.png" id="1_moowg"]
 [ext_resource type="Script" path="res://Building/building_empty.gd" id="1_s53sw"]
 [ext_resource type="Texture2D" uid="uid://cxmqxwxsxdemk" path="res://Asset/Building/BuildingProcess.png" id="3_gr8lj"]
-[ext_resource type="Texture2D" uid="uid://b804nsuhxhysu" path="res://Asset/UI/BuildingMenu.png" id="3_tsm80"]
+[ext_resource type="StyleBox" uid="uid://trceivgdaa8f" path="res://Asset/Menu/MenuStyleBox.tres" id="4_b4bq0"]
+[ext_resource type="Texture2D" uid="uid://ckajt2bqdy864" path="res://Asset/Menu/BuildingSetMenu/main_normal.png" id="5_au1ov"]
+[ext_resource type="Texture2D" uid="uid://d3h32awqhxfqa" path="res://Asset/Menu/BuildingSetMenu/main_hover.png" id="6_ecjy4"]
+[ext_resource type="Texture2D" uid="uid://dmxrs8sjthwfe" path="res://Asset/Menu/BuildingSetMenu/side_normal.png" id="7_1lecf"]
+[ext_resource type="Texture2D" uid="uid://bym4s7ee68rle" path="res://Asset/Menu/BuildingSetMenu/side_hoverpng.PNG" id="8_wwl75"]
+[ext_resource type="Texture2D" uid="uid://dhs5jsuqe6rnt" path="res://Asset/Menu/BuildingSetMenu/other_normal.PNG" id="9_00nm2"]
+[ext_resource type="Texture2D" uid="uid://bd1lsaj4aqvwo" path="res://Asset/Menu/BuildingSetMenu/other_hover.png" id="10_xy75i"]
+[ext_resource type="Texture2D" uid="uid://d1rh6fjmy0pys" path="res://Asset/Menu/BuildingMenu/Daxiongbaodian_icon_hover.png" id="11_pf1dy"]
+[ext_resource type="Texture2D" uid="uid://7gdje1e1t2vd" path="res://Asset/Menu/BuildingMenu/Daxiongbaodian_icon_normal.png" id="12_g7osb"]
+[ext_resource type="Texture2D" uid="uid://bgf7ntifm08jb" path="res://Asset/Menu/BuildingMenu/Sengshe_icon_normal.png" id="13_mgobd"]
+[ext_resource type="Texture2D" uid="uid://c5h6yv03h2ptm" path="res://Asset/Menu/BuildingMenu/Sengshe_icon_hover.png" id="14_4k60c"]
+[ext_resource type="Texture2D" uid="uid://drvue1tend03v" path="res://Asset/Menu/BuildingMenu/Luohantang_icon_normal.png.PNG" id="15_2cj14"]
+[ext_resource type="Texture2D" uid="uid://bol4kl2q7ngwa" path="res://Asset/Menu/BuildingMenu/Luohantang_icon_hover.png" id="16_xny0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u48ij"]
 atlas = ExtResource("1_moowg")
@@ -21,17 +33,17 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_moowg")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_54cbx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h27sv"]
 atlas = ExtResource("3_gr8lj")
-region = Rect2(0, 0, 287, 182)
+region = Rect2(0, 0, 107, 68)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pdkjf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ra27"]
 atlas = ExtResource("3_gr8lj")
-region = Rect2(287, 0, 287, 182)
+region = Rect2(107, 0, 107, 68)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yevss"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_63bw5"]
 atlas = ExtResource("3_gr8lj")
-region = Rect2(574, 0, 287, 182)
+region = Rect2(214, 0, 107, 68)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rdxyj"]
 animations = [{
@@ -54,37 +66,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_54cbx")
+"texture": SubResource("AtlasTexture_h27sv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pdkjf")
+"texture": SubResource("AtlasTexture_6ra27")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yevss")
+"texture": SubResource("AtlasTexture_63bw5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pdkjf")
+"texture": SubResource("AtlasTexture_6ra27")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_54cbx")
+"texture": SubResource("AtlasTexture_h27sv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pdkjf")
+"texture": SubResource("AtlasTexture_6ra27")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yevss")
+"texture": SubResource("AtlasTexture_63bw5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pdkjf")
+"texture": SubResource("AtlasTexture_6ra27")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_54cbx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pdkjf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yevss")
+"texture": SubResource("AtlasTexture_h27sv")
 }],
 "loop": false,
 "name": &"working",
@@ -94,71 +100,177 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0e5q"]
 size = Vector2(20, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wp7mp"]
-atlas = ExtResource("3_tsm80")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cqeiq"]
-atlas = ExtResource("3_tsm80")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3pdo8"]
-atlas = ExtResource("3_tsm80")
-region = Rect2(128, 0, 64, 64)
-
 [node name="BuildingEmpty" type="Node2D"]
 script = ExtResource("1_s53sw")
 metadata/_edit_lock_ = true
 
 [node name="AniSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -38)
+position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_rdxyj")
+animation = &"working"
 
 [node name="ClickArea" type="Area2D" parent="."]
 position = Vector2(0, -38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_l0e5q")
 
 [node name="BuildingMenu" type="Node2D" parent="."]
 position = Vector2(0, -38)
 
-[node name="MenuPanel" type="PanelContainer" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
+[node name="HusMenuSystem" type="Node2D" parent="."]
+position = Vector2(1, -2)
+metadata/_edit_group_ = true
+
+[node name="HusMenuPanel" type="PanelContainer" parent="HusMenuSystem"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -83.0
-offset_right = 100.0
-offset_bottom = -19.0
+offset_left = -82.0
+offset_top = -179.0
+offset_right = 82.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.08165e-12, 2.08165e-12)
-pivot_offset = Vector2(100, 31)
-metadata/_edit_group_ = true
+pivot_offset = Vector2(81, 138)
+theme_override_styles/panel = ExtResource("4_b4bq0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HusMenuSystem/HusMenuPanel"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 alignment = 1
+
+[node name="MainSet" type="TextureButton" parent="HusMenuSystem/HusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_au1ov")
+texture_hover = ExtResource("6_ecjy4")
+
+[node name="SideSet" type="TextureButton" parent="HusMenuSystem/HusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_1lecf")
+texture_hover = ExtResource("8_wwl75")
+
+[node name="Other" type="TextureButton" parent="HusMenuSystem/HusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_00nm2")
+texture_hover = ExtResource("10_xy75i")
+
+[node name="MainHusMenuPanel" type="PanelContainer" parent="HusMenuSystem"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -179.0
+offset_right = 83.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(83, 138)
+theme_override_styles/panel = ExtResource("4_b4bq0")
 metadata/_edit_group_ = true
 
-[node name="SengsheBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HusMenuSystem/MainHusMenuPanel"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_wp7mp")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
 
-[node name="LuohantangBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="Daxiongbaodian" type="TextureButton" parent="HusMenuSystem/MainHusMenuPanel/HBoxContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_cqeiq")
+texture_normal = ExtResource("12_g7osb")
+texture_hover = ExtResource("11_pf1dy")
 
-[node name="DaxiongbaodianBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="Da2" type="TextureButton" parent="HusMenuSystem/MainHusMenuPanel/HBoxContainer"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_3pdo8")
+texture_normal = ExtResource("12_g7osb")
+texture_hover = ExtResource("11_pf1dy")
+
+[node name="Da3" type="TextureButton" parent="HusMenuSystem/MainHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_g7osb")
+texture_hover = ExtResource("11_pf1dy")
+
+[node name="SideHusMenuPanel" type="PanelContainer" parent="HusMenuSystem"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -179.0
+offset_right = 83.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(83, 138)
+theme_override_styles/panel = ExtResource("4_b4bq0")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HusMenuSystem/SideHusMenuPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Sengshe" type="TextureButton" parent="HusMenuSystem/SideHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_mgobd")
+texture_hover = ExtResource("14_4k60c")
+
+[node name="Seng2" type="TextureButton" parent="HusMenuSystem/SideHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_mgobd")
+texture_hover = ExtResource("14_4k60c")
+
+[node name="Seng3" type="TextureButton" parent="HusMenuSystem/SideHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_mgobd")
+texture_hover = ExtResource("14_4k60c")
+
+[node name="OtherHusMenuPanel" type="PanelContainer" parent="HusMenuSystem"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -179.0
+offset_right = 83.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(83, 138)
+theme_override_styles/panel = ExtResource("4_b4bq0")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HusMenuSystem/OtherHusMenuPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Luohan" type="TextureButton" parent="HusMenuSystem/OtherHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_2cj14")
+texture_hover = ExtResource("16_xny0m")
+
+[node name="Luo2" type="TextureButton" parent="HusMenuSystem/OtherHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_2cj14")
+texture_hover = ExtResource("16_xny0m")
+
+[node name="Luo3" type="TextureButton" parent="HusMenuSystem/OtherHusMenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_2cj14")
+texture_hover = ExtResource("16_xny0m")
 
 [connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
-[connection signal="pressed" from="MenuPanel/HBoxContainer/SengsheBtn" to="." method="_on_sengshe_btn_pressed"]
-[connection signal="pressed" from="MenuPanel/HBoxContainer/LuohantangBtn" to="." method="_on_luohantang_btn_pressed"]
-[connection signal="pressed" from="MenuPanel/HBoxContainer/DaxiongbaodianBtn" to="." method="_on_daxiongbaodian_btn_pressed"]
+[connection signal="pressed" from="HusMenuSystem/HusMenuPanel/HBoxContainer/MainSet" to="." method="_on_main_set_pressed"]
+[connection signal="pressed" from="HusMenuSystem/HusMenuPanel/HBoxContainer/SideSet" to="." method="_on_side_set_pressed"]
+[connection signal="pressed" from="HusMenuSystem/HusMenuPanel/HBoxContainer/Other" to="." method="_on_other_pressed"]

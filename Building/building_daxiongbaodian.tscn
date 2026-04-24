@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://j35ldbwss7x2"]
+[gd_scene load_steps=13 format=3 uid="uid://j35ldbwss7x2"]
 
 [ext_resource type="Script" path="res://Building/building_daxiongbaodian.gd" id="1_mdyw6"]
 [ext_resource type="Texture2D" uid="uid://bs1miplanwwc5" path="res://Asset/Building/DaXiongBaoDian.png" id="2_pxdsq"]
-[ext_resource type="Texture2D" uid="uid://yhylt7pmcthi" path="res://Asset/UI/upgrade.png" id="3_mwn7i"]
-[ext_resource type="Texture2D" uid="uid://buob8yuf8uhhs" path="res://Asset/UI/downgrade_normal.PNG" id="4_pydxt"]
-[ext_resource type="Texture2D" uid="uid://c6x2xe4m78hru" path="res://Asset/UI/work.png" id="5_aqx4q"]
-[ext_resource type="Texture2D" uid="uid://bnnec8lk4yviu" path="res://Asset/UI/downgrade_hover.PNG" id="5_gepvx"]
+[ext_resource type="StyleBox" uid="uid://trceivgdaa8f" path="res://Asset/Menu/MenuStyleBox.tres" id="3_5q77t"]
+[ext_resource type="Texture2D" uid="uid://d3muqatx2bdi8" path="res://Asset/UI/upgrade_normal.png" id="3_147y5"]
+[ext_resource type="Texture2D" uid="uid://bnnec8lk4yviu" path="res://Asset/UI/downgrade_normal.png" id="4_pydxt"]
+[ext_resource type="Texture2D" uid="uid://c08iuwa5pwgvk" path="res://Asset/UI/upgrade_hover.png" id="4_wyxk2"]
+[ext_resource type="Texture2D" uid="uid://buob8yuf8uhhs" path="res://Asset/UI/downgrade_hover.png" id="5_gepvx"]
+[ext_resource type="Texture2D" uid="uid://b2u0ky0mx80hd" path="res://Asset/UI/work_normal.png" id="6_17ijy"]
+[ext_resource type="Texture2D" uid="uid://bgv6ksq06pnuk" path="res://Asset/UI/work_hover.png" id="7_18tvu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_prfbg"]
 atlas = ExtResource("2_pxdsq")
@@ -35,33 +38,41 @@ position = Vector2(0, -60)
 sprite_frames = SubResource("SpriteFrames_ta5ol")
 
 [node name="MenuPanel" type="PanelContainer" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -100.0
-offset_top = -140.0
-offset_right = 100.0
-offset_bottom = -76.0
-scale = Vector2(2.08165e-12, 2.08165e-12)
-pivot_offset = Vector2(100, 31)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -203.0
+offset_right = 85.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(87, 68)
+theme_override_styles/panel = ExtResource("3_5q77t")
 metadata/_edit_group_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPanel"]
 layout_mode = 2
+size_flags_vertical = 4
 alignment = 1
 metadata/_edit_group_ = true
 
-[node name="TextureRect" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="UpgradeBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_mwn7i")
+texture_normal = ExtResource("3_147y5")
+texture_hover = ExtResource("4_wyxk2")
 
-[node name="TextureRect2" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+[node name="RunBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_17ijy")
+texture_hover = ExtResource("7_18tvu")
+
+[node name="DowngradeBtn" type="TextureButton" parent="MenuPanel/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_pydxt")
 texture_hover = ExtResource("5_gepvx")
-
-[node name="TextureRect3" type="TextureButton" parent="MenuPanel/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("5_aqx4q")
 
 [node name="ClickArea" type="Area2D" parent="."]
 position = Vector2(0, -60)

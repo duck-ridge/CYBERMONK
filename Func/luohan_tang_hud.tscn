@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxtuenc8wp28y"]
+
+[ext_resource type="Texture2D" uid="uid://dk5rti7bkf08t" path="res://Asset/FuncUI/LuohanTang/rolling.png" id="1_alvfi"]
+[ext_resource type="Script" path="res://Func/luohan_tang_hud.gd" id="1_ftago"]
+[ext_resource type="Texture2D" uid="uid://b181qwdope0dn" path="res://Asset/FuncUI/LuohanTang/empty.png" id="2_oskis"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkgq2"]
+atlas = ExtResource("1_alvfi")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xf2y"]
+atlas = ExtResource("1_alvfi")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aovdx"]
+atlas = ExtResource("1_alvfi")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy1bm"]
+atlas = ExtResource("1_alvfi")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2vw1"]
+atlas = ExtResource("1_alvfi")
+region = Rect2(2048, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf2sy"]
+atlas = ExtResource("1_alvfi")
+region = Rect2(2560, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fq8ak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oskis")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkgq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xf2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aovdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy1bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2vw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf2sy")
+}],
+"loop": true,
+"name": &"rolling",
+"speed": 80.0
+}]
+
+[node name="LuohanTangHUD" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ftago")
+
+[node name="RollingMachine" type="Node2D" parent="."]
+position = Vector2(566, 102)
+
+[node name="AniSprite" type="AnimatedSprite2D" parent="RollingMachine"]
+position = Vector2(-7, 17)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fq8ak")
+animation = &"rolling"
+
+[node name="PanelContainer" type="PanelContainer" parent="RollingMachine"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -30.0
+offset_right = 99.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+metadata/_edit_group_ = true
+
+[node name="VBox" type="VBoxContainer" parent="RollingMachine/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InputLabel" type="Label" parent="RollingMachine/PanelContainer/VBox"]
+layout_mode = 2
+text = "Input"
+horizontal_alignment = 1
+
+[node name="InputNum" type="LineEdit" parent="RollingMachine/PanelContainer/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResultLabel" type="Label" parent="RollingMachine/PanelContainer/VBox"]
+layout_mode = 2
+text = "Result"
+horizontal_alignment = 1
+
+[node name="ShowResultLabel" type="Label" parent="RollingMachine/PanelContainer/VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="StartBn" type="Button" parent="RollingMachine"]
+offset_left = -62.0
+offset_top = 103.0
+offset_right = -16.0
+offset_bottom = 134.0
+text = "Start"
+
+[node name="CloseBtn" type="Button" parent="RollingMachine"]
+offset_left = 1.0
+offset_top = 103.0
+offset_right = 51.0
+offset_bottom = 134.0
+text = "Close"
+
+[node name="RollingTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="RollingMachine/StartBn" to="." method="_on_start_bn_pressed"]
+[connection signal="pressed" from="RollingMachine/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="timeout" from="RollingTimer" to="." method="_on_rolling_timer_timeout"]
